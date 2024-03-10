@@ -44,13 +44,16 @@ fun cadastrarLivro(repositorio: MutableList<Livro>) {
     println("\nCadastrado com sucesso!\n")
 }
 
-fun excluirLivro(repositorio: MutableList<Livro>) {
+fun excluirLivro(repositorio: MutableList<Livro>):Boolean {
     val livro = buscarNome(repositorio)
     if(livro != null){
         repositorio.remove(livro)
         println("Livro removido com sucesso!")
+        return true 
     }else{
         println("Livro não encontrado")
+        return false
+        
     }
 
 }
@@ -131,7 +134,7 @@ fun main() {
                 val livro = buscarNome(repositorioLivros)
                 println(livro)
             }
-//            4 ->
+            4 -> editarLivro(repositorioLivros)
             5 -> listar(repositorioLivros)
             6 -> listarComLetraInicial(repositorioLivros)
             7 -> listarComPrecoAbaixo(repositorioLivros)
